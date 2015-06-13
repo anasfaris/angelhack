@@ -1,5 +1,8 @@
 import os
+<<<<<<< HEAD
 import http.client
+=======
+>>>>>>> 326a7363803dd1a2e29d4ca80fb7c09f816b5a7c
 try:
   from SimpleHTTPServer import SimpleHTTPRequestHandler as Handler
   from SocketServer import TCPServer as Server
@@ -18,7 +21,10 @@ try:
   httpd.serve_forever()
 except KeyboardInterrupt:
   pass
+<<<<<<< HEAD
 
 conn = http.client.HTTPConnection("http://ratemyarticle.mybluemix.net/")
+=======
+>>>>>>> 326a7363803dd1a2e29d4ca80fb7c09f816b5a7c
 httpd.server_close()
 
