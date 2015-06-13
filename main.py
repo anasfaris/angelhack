@@ -4,6 +4,12 @@ if 'threading' in sys.modules:
     del sys.modules['threading']
 # from gevent import monkey; monkey.patch_all()
 
+# try googlemaps
+from gmap import get_direction
+
+get_direction()
+
+
 #Bottle Framework
 from bottle import *
 import bottle
