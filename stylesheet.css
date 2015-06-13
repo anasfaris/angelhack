@@ -1,0 +1,45 @@
+#headerbar {
+	position: fixed;
+	height: 250px;
+	width: 100%;
+	background: #FF9933;
+	z-index: 1;
+	float: left;
+	padding-left: auto;
+	padding-right: auto;
+	margin-top: -10px;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+#introspeech {
+	position: relative;
+	text-align: center;
+	margin-top: 70px;
+	font-family: Arial;
+	font-size: 70px;
+	color: #ffffff;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+#description {
+	position: relative;
+	text-align: center;
+	margin-top: 30px;
+	font-family: Arial;
+	font-size: 20px;
+	color: #ffffff;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+#searchbox {
+	padding-left: 20%;
+	padding-right: 20%;
+	padding-top: 250px;
+	position: relative;
+	margin: auto;
+	font-family: Arial;
+
+}
