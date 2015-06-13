@@ -80,7 +80,7 @@ def get_divs(page_soup):
 		print type(div)
 		get_number_of_p_in_div(div)
 
-	return div
+	return div_list
 
 # div has to be bs4.element.tag
 def get_number_of_p_in_div(div):
@@ -90,19 +90,21 @@ def get_number_of_p_in_div(div):
 	print num_of_p
 	return num_of_p
 
-def get_div_highest_p(article_url):
-	page_soup = get_page(article_url)
-	div_list = get_divs(page_soup)
-	
+def get_div_highest_p(div_list):
+	print "in func get_div_highest_p"
 	# find div with highest number of p's
 	max_p_number = 0
 	max_div = None
 	for div in div_list:
 		p_number = get_number_of_p_in_div(div)
+		print "p_number"
+		print p_number
 		if p_number > max_p_number:
 			max_p_number = p_number
 			max_div = div
 
+	print "max_div:"
+	print max_div
 	return max_div
 
 # find article by p
@@ -136,7 +138,8 @@ test_urls = [
 	# get_title(url)
 # get_article_p(test_urls[1])
 page_soup = get_page(test_urls[1])
-get_divs(page_soup)
+div_list = get_divs(page_soup)
+get_div_highest_p(div_list)
 # article_url = test_urls[1]
 # get_div_highest_p(article_url)
 # url = test_urls[0]
