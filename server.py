@@ -22,8 +22,12 @@ try:
 except KeyboardInterrupt:
   pass
 <<<<<<< HEAD
-
+params = urllib.parse.urlencode({'@number': 12524, '@type': 'issue', '@action': 'show'})
+headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
 conn = http.client.HTTPConnection("http://ratemyarticle.mybluemix.net/")
+conn.request("POST", "", params, headers)
+response = conn.getresponse()
+print(response.status, response.reason)
 =======
 >>>>>>> 326a7363803dd1a2e29d4ca80fb7c09f816b5a7c
 httpd.server_close()
