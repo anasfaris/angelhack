@@ -149,8 +149,8 @@ def get_article_p(article_url):
 		print type(p)
 
 test_urls = [
-	# 'http://www.themalaysianinsider.com/opinion/ooi-kok-hin/article/from-spm-straight-to-varsity-degree-a-proposal'
-	'http://www.harakahdaily.net/index.php/headline-english/35863-muktamar-never-fails-to-draw-crowds'
+	'http://www.themalaysianinsider.com/opinion/ooi-kok-hin/article/from-spm-straight-to-varsity-degree-a-proposal'
+	,'http://www.harakahdaily.net/index.php/headline-english/35863-muktamar-never-fails-to-draw-crowds'
 	,'http://www.themalaysianinsider.com/opinion/rash-behari-battacharjee/article/will-we-answer-the-call-to-reinvent-malaysia'
 	,'https://blog.growth.supply/how-quitting-my-corporate-job-for-my-startup-dream-f-cked-my-life-up-3b6b3e29b318'
 	,'https://medium.com/on-coding/you-can-already-code-you-just-dont-know-it-yet-862044601a5a'
@@ -168,21 +168,23 @@ test_urls = [
 	# get_title(url)
 # get_article_p(test_urls[1])
 
-page_soup = get_page(test_urls[1])
-# get list of all divs in page_soup
-div_list = get_divs(page_soup)
-# get div with highest number of p in it
-div_max_p = get_div_highest_p(div_list)
-# get all p's in div_max	_p
-p_list = get_all_p_from_div(div_max_p)
-# for p in p_list:
-	# p = p.extract()
-	# print type(p)
-	# p = p.string
-	# if p is not None:
+for url in test_urls:
+
+	page_soup = get_page(url)
+	# get list of all divs in page_soup
+	div_list = get_divs(page_soup)
+	# get div with highest number of p in it
+	div_max_p = get_div_highest_p(div_list)
+	# get all p's in div_max	_p
+	p_list = get_all_p_from_div(div_max_p)
+	# for p in p_list:
+		# p = p.extract()
 		# print type(p)
-	# p.
-article = get_article_from_plist(p_list)
+		# p = p.string
+		# if p is not None:
+			# print type(p)
+		# p.
+	article = get_article_from_plist(p_list)
 # print article
 
 
