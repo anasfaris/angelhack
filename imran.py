@@ -1,6 +1,25 @@
 from bs4 import BeautifulSoup, SoupStrainer
 import urllib2
 
+# returns the whole article as a single string
+def get_article_from_plist(p_list):
+	article = ""
+	for p in p_list:
+		# p = p.encode('utf-8')
+		p = p.extract().string
+		if p is not None:
+			# print type(p)
+			p = p.encode('utf-8')
+			# print type(p)
+			article += p
+
+		# print type(p)
+			# article += p
+
+	# print "article:\n\n"
+	print article
+	return article
+
 # returns page as a soup type
 def get_page(article_url):
 
@@ -110,24 +129,6 @@ def get_div_highest_p(div_list):
 def get_all_p_from_div(div):
 	 p_list = div.find_all('p')
 	 return p_list
-
-def get_article_from_plist(p_list):
-	article = ""
-	for p in p_list:
-		# p = p.encode('utf-8')
-		p = p.extract().string
-		if p is not None:
-			# print type(p)
-			p = p.encode('utf-8')
-			# print type(p)
-			article += p
-
-		# print type(p)
-			# article += p
-
-	# print "article:\n\n"
-	print article
-	return article
 
 def remove_p_tag(p_tag_element):
 	p = p_tag_element.strip('<p>')

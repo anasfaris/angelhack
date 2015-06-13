@@ -23,7 +23,7 @@ def error404(error):
 
 @route("/")
 def main():
-	return template('index.html')
+	return template('index.php')
 	
 # get articles
 # @route('/get_article/<>')
