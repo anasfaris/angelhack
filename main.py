@@ -2,7 +2,7 @@
 import sys
 if 'threading' in sys.modules:
     del sys.modules['threading']
-from gevent import monkey; monkey.patch_all()
+# from gevent import monkey; monkey.patch_all()
 
 #Bottle Framework
 from bottle import *
@@ -22,5 +22,5 @@ def error404(error):
 def main():
 	return template('index.html')
 
-run(reloader=True, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), server='gevent')
+run(reloader=True, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
