@@ -74,10 +74,10 @@ def get_divs(page_soup):
 
 	# test
 	for div in div_list:
-		print "div"
-		print div
-		print "type(div)"
-		print type(div)
+		# print "div"
+		# print div
+		# print "type(div)"
+		# print type(div)
 		get_number_of_p_in_div(div)
 
 	return div_list
@@ -86,26 +86,56 @@ def get_divs(page_soup):
 def get_number_of_p_in_div(div):
 	p_list = div.find_all('p')
 	num_of_p = len(p_list)
-	print "num_of_p:"
-	print num_of_p
+	# print "num_of_p:"
+	# print num_of_p
 	return num_of_p
 
 def get_div_highest_p(div_list):
-	print "in func get_div_highest_p"
+	# print "in func get_div_highest_p"
 	# find div with highest number of p's
 	max_p_number = 0
 	max_div = None
 	for div in div_list:
 		p_number = get_number_of_p_in_div(div)
-		print "p_number"
-		print p_number
+		# print "p_number"
+		# print p_number
 		if p_number > max_p_number:
 			max_p_number = p_number
 			max_div = div
 
-	print "max_div:"
-	print max_div
+	# print "max_div:"
+	# print max_div
 	return max_div
+
+def get_all_p_from_div(div):
+	 p_list = div.find_all('p')
+	 return p_list
+
+def get_article_from_plist(p_list):
+	article = ""
+	for p in p_list:
+		# p = p.encode('utf-8')
+		p = p.extract().string
+		if p is not None:
+			# print type(p)
+			p = p.encode('utf-8')
+			# print type(p)
+			article += p
+
+		# print type(p)
+			# article += p
+
+	# print "article:\n\n"
+	print article
+	return article
+
+def remove_p_tag(p_tag_element):
+	p = p_tag_element.strip('<p>')
+	p = p.strip('</p>')
+	p = p.strip('/>')
+
+	return p
+
 
 # find article by p
 def get_article_p(article_url):
@@ -137,9 +167,26 @@ test_urls = [
 # 	print "\n"
 	# get_title(url)
 # get_article_p(test_urls[1])
+
 page_soup = get_page(test_urls[1])
+# get list of all divs in page_soup
 div_list = get_divs(page_soup)
-get_div_highest_p(div_list)
+# get div with highest number of p in it
+div_max_p = get_div_highest_p(div_list)
+# get all p's in div_max	_p
+p_list = get_all_p_from_div(div_max_p)
+# for p in p_list:
+	# p = p.extract()
+	# print type(p)
+	# p = p.string
+	# if p is not None:
+		# print type(p)
+	# p.
+article = get_article_from_plist(p_list)
+# print article
+
+
+
 # article_url = test_urls[1]
 # get_div_highest_p(article_url)
 # url = test_urls[0]
