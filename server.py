@@ -24,7 +24,7 @@ except KeyboardInterrupt:
 <<<<<<< HEAD
 params = urllib.parse.urlencode({'@number': 12524, '@type': 'issue', '@action': 'show'})
 headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
-conn = http.client.HTTPConnection("http://ratemyarticle.mybluemix.net/")
+conn = http.client.HTTPConnection("bugs.python.org")
 conn.request("POST", "", params, headers)
 response = conn.getresponse()
 print(response.status, response.reason)
