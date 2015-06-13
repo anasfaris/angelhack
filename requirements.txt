@@ -1,0 +1,5 @@
+bottle==0.12.7
+pymongo==2.8
+gevent==1.0.1
+pycps==0.3.0
+clusterpoint-api==0.3.0
