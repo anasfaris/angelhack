@@ -14,6 +14,7 @@ get_direction()
 from bottle import *
 import bottle
 import os
+from point_to_radius import *
 
 #specifying the path for the files
 @route('/static/<filepath:path>')
@@ -27,5 +28,7 @@ def error404(error):
 @route("/")
 def main():
 	return template('index.html')
+	
+point_to_radius(0, 0)
 
 run(reloader=True, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
