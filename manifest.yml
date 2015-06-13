@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+applications:
+- disk_quota: 1024M
+  host: ratemyarticle
+  name: RateMyArticle
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 128M
+=======
+---
+declared-services:
+  personality-insights-service:
+    label: personality_insights
+    plan: IBM Watson Personality Insights Monthly Plan
+applications:
+- name: personality-insights-python-zcchew1202-53
+  command: python server.py
+  path: .
+  memory: 256M
+  services:
+    - personality-insights-service
+  host: personality-insights-python-zcchew1202-53
+>>>>>>> eca73a04d2439e69a5552ed3ffe73726b3122ceb
