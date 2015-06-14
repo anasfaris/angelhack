@@ -139,3 +139,15 @@ test_urls = [
 # 	# get all p's in div_max	_p
 # 	p_list = get_all_p_from_div(div_max_p)
 # 	article = get_article_from_plist(p_list)
+
+	url = raw_input("give url> ")
+
+	page_soup = get_page(url)
+	div_list = get_divs(page_soup)
+	# get div with highest number of p in it
+	div_max_p = get_div_highest_p(div_list)
+	# get all p's in div_max	_p
+	p_list = get_all_p_from_div(div_max_p)
+	article = get_article_from_plist(p_list)
+	print "article:"
+	print article

@@ -1,3 +1,6 @@
+# watson
+from server import *
+
 #Gevent Server
 import sys
 if 'threading' in sys.modules:
@@ -25,21 +28,34 @@ def error404(error):
 def main():
 	return template('index.php')
 	
-
 @route('/rate', method="POST")
 def rate():
 	# print request.forms.post('watsonquery')
 	print request.forms.post('watsonquery')
 	return template('index.php')
 
+@route('/watson', method="POST")
+def watson():
+	print request.forms.get('watsonquery')
+	# print request.forms.post('watsonquery')
+	# print request.query.watsonquery
+	# url = raw_input("give url> ")
+
+	# page_soup = get_page(url)
+	# div_list = get_divs(page_soup)
+	# # get div with highest number of p in it
+	# div_max_p = get_div_highest_p(div_list)
+	# # get all p's in div_max	_p
+	# p_list = get_all_p_from_div(div_max_p)
+	# article = get_article_from_plist(p_list)
+	# print "article:"
+	# print article
+	
+	url = request.query.articleurl
+	return template('url: {{url}}', url=url)
+
 # get articles
 # @route('/get_article/<>')
 
-url = test_urls[0]
-# beautiful_page = get_page(url)
-print "url:"
-# print url
-print "beautiful page:"
-# print beautiful_page
 
 run(reloader=True, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))

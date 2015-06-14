@@ -46,7 +46,7 @@ if ($submit) {
       	</div>
       </div>
       <div id="searchbox">
-          <form action="/rate" method="post">
+          <form action="/watson" method="post">
                   &nbsp &nbsp &nbsp &nbsp &nbsp  Url : <input type="text" name="articleurl" size="80"> 
           <input type="submit" name="watsonquery" value="Submit">
           </form>

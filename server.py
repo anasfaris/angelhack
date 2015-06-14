@@ -22,6 +22,20 @@ import json
 from mako.template import Template
 from mako.lookup import TemplateLookup
 
+credentials_zi = {
+  "personality_insights": [
+     {
+        "name": "Personality Insights-b5(angelhack)",
+        "label": "personality_insights",
+        "plan": "IBM Watson Personality Insights Monthly Plan",
+        "credentials": {
+           "url": "https://gateway.watsonplatform.net/personality-insights/api",
+           "username": "5530e904-9b22-451e-9afc-972e52f27000",
+           "password": "D6CkDcE8rSBL"
+        }
+     }
+  ]
+}
 
 class PersonalityInsightsService:
     """Wrapper on the Personality Insights service"""
@@ -33,9 +47,14 @@ class PersonalityInsightsService:
         """
 
         # Local variables
-        self.url = "<url>"
-        self.username = "<username>"
-        self.password = "<password>"
+        # self.url = "<url>"
+        # self.username = "<username>"
+        # self.password = "<password>"
+
+        self.url = credentials_zi["personality_insights"][0]["credentials"]["url"]
+        self.username = credentials_zi["personality_insights"][0]["credentials"]["username"]
+        self.password = credentials_zi["personality_insights"][0]["credentials"]["password"]
+
 
         if vcapServices is not None:
             print("Parsing VCAP_SERVICES")
@@ -113,8 +132,8 @@ if __name__ == '__main__':
     cherrypy.config.update({
         "server.socket_host": HOST_NAME,
         "server.socket_port": PORT_NUMBER,
-    })
-
+    }
+)
     # Configure 2 paths: "public" for all JS/CSS content, and everything
     # else in "/" handled by the DemoService
     conf = {
