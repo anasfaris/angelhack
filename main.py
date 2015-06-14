@@ -25,14 +25,21 @@ def error404(error):
 def main():
 	return template('index.php')
 	
+
+@route('/rate', method="POST")
+def rate():
+	# print request.forms.post('watsonquery')
+	print request.forms.post('watsonquery')
+	return template('index.php')
+
 # get articles
 # @route('/get_article/<>')
 
 url = test_urls[0]
-beautiful_page = get_page(url)
+# beautiful_page = get_page(url)
 print "url:"
-print url
+# print url
 print "beautiful page:"
-print beautiful_page
+# print beautiful_page
 
 run(reloader=True, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))

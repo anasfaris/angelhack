@@ -13,9 +13,6 @@ def get_article_from_plist(p_list):
 			# print type(p)
 			article += p
 
-		# print type(p)
-			# article += p
-
 	# print "article:\n\n"
 	print article
 	return article
@@ -32,28 +29,6 @@ def get_page(article_url):
 	# get page as soup
 	page_soup = BeautifulSoup(page)
 	# encode to utf-8 to avoid charmap error
-	# page_soup = page_soup
-	# print type(page_soup)
-	# print type(page_soup.prettify())
-
-	# test 
-	# print "page_soup div_only:"
-	# print page_soup
-	# print "page_soup.prettify():"
-	# print page_soup.prettify()
-
-	# for div in page_soup:
-	# 	print "page_soup div:"
-	# 	print div
-
-	# print "soup.stripped_strings:"
-	# stripped_strings = page_soup.stripped_strings
-	# print stripped_strings
-	# for i in stripped_strings:
-	# 	print "i"
-	# 	print i
-		# print 'stripped_strings[i]'
-		# print stripped_strings[i]
 
 	return page_soup
 
@@ -93,10 +68,6 @@ def get_divs(page_soup):
 
 	# test
 	for div in div_list:
-		# print "div"
-		# print div
-		# print "type(div)"
-		# print type(div)
 		get_number_of_p_in_div(div)
 
 	return div_list
@@ -158,17 +129,6 @@ test_urls = [
 ]
 
 # test
-# for url in test_urls:
-# 	print "url:"
-# 	print url
-# 	page_soup = get_page(url)
-# 	print "page_soup.prettify()"
-# 	# encode to utf-8 to avoid charmap error
-# 	print page_soup.encode('utf-8').prettify()
-# 	print "\n"
-	# get_title(url)
-# get_article_p(test_urls[1])
-
 for url in test_urls:
 
 	page_soup = get_page(url)
@@ -178,20 +138,4 @@ for url in test_urls:
 	div_max_p = get_div_highest_p(div_list)
 	# get all p's in div_max	_p
 	p_list = get_all_p_from_div(div_max_p)
-	# for p in p_list:
-		# p = p.extract()
-		# print type(p)
-		# p = p.string
-		# if p is not None:
-			# print type(p)
-		# p.
 	article = get_article_from_plist(p_list)
-# print article
-
-
-
-# article_url = test_urls[1]
-# get_div_highest_p(article_url)
-# url = test_urls[0]
-# page_soup = get_page(url)
-# get_title(url)
