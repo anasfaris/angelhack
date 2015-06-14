@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+bottle==0.12.7
+pymongo==2.8
+gevent==1.0.1
+pycps==0.3.0
+clusterpoint-api==0.3.0
+geopy==1.10.0
+googlemaps==2.2
+||||||| merged common ancestors
+=======
 cherrypy
 mako
 requests
+>>>>>>> b2941739b55e52724be1b7fc971e53417afaeac5
