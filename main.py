@@ -10,10 +10,10 @@ import bottle
 import os
 
 # get article
-from imran import get_page, get_article, test_urls
+from imran import get_page, get_article, test_urls, get_title
 
 #specifying the path for the files
-@route('/static/<filepath:path>')
+@route('/<filepath:path>')
 def server_static(filepath):
 	return static_file(filepath, root='.')
 
@@ -23,8 +23,17 @@ def error404(error):
 
 @route("/")
 def main():
-	return template('index.html')
+	return template('index.php')
+	get_url = (request.form['watsonquery'])
+	print(request.form['watsonquery'])
+	page = get_page(get_url)
+	article = get_article(get_url)
+	title = get_title(get_url)
+	print(page)
+	print(article)
+	print(title)
 	
+
 # get articles
 # @route('/get_article/<>')
 

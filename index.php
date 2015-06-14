@@ -1,34 +1,15 @@
-<?php 
-//this code is tested locally
-require_once 'cps_api.php';
+<%
+import pycps
 
-// Connect to clusterpoint
-$connectionStrings = array(
-  'tcp://cloud-us-0.clusterpoint.com:9007',
-  'tcp://cloud-us-1.clusterpoint.com:9007',
-  'tcp://cloud-us-2.clusterpoint.com:9007',
-  'tcp://cloud-us-3.clusterpoint.com:9007'
-);
+con = pycps.Connection('tcp://cloud-us-0.clusterpoint.com:9007', 'TruArticle', 'jimmyasyraf@gmail.com', '12345', '100491')
 
-$cpsConn = new CPS_Connection(
-  new CPS_LoadBalancer($connectionStrings),
-  'TruArticle',
-  'jimmyasyraf',
-  '12345',
-  'document',
-  '//document/id',
-  array('account' => 100491)
-);
+response = con.search(term('TruArticle'), docs=3, offset=1)
 
-$submit = @$_POST['watsonquery'];
-if ($submit) {
-  exec("python watson.py someparams");
-}
 
 // Debug
 //$cpsConn->setDebug(true);
 
-?>
+%>
 
 <!DOCTYPE html>
 <html>
@@ -41,7 +22,7 @@ if ($submit) {
 <body>
       <div id="headerbar">
         <div id="logo">
-             <h2 id="introspeech">TruArticle</h2>
+             <h2 id="introspeech">ReadSmart</h2>
              <h5 id="description">Check if the article is realible or not. Paste the link below!</h5>
       	</div>
       </div>
