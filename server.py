@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import os
 
 #import http.client
@@ -31,7 +31,7 @@ except KeyboardInterrupt:
 
 httpd.server_close()
 
-=======
+
 #
 # Copyright 2014 IBM Corp. All Rights Reserved.
 #
@@ -169,4 +169,4 @@ if __name__ == '__main__':
     # Start the server
     print("Listening on %s:%d" % (HOST_NAME, PORT_NUMBER))
     cherrypy.quickstart(DemoService(personalityInsights), "/", config=conf)
->>>>>>> eca73a04d2439e69a5552ed3ffe73726b3122ceb
+
