@@ -1,4 +1,4 @@
-#
+
 # Copyright 2014 IBM Corp. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -81,7 +81,7 @@ class DemoService(object):
             contentFile = open("mobidick.txt", "r")
             self.defaultContent = contentFile.read()
         except Exception as e:
-            print "ERROR: couldn't read mobidick.txt: %s" % e
+            print ("ERROR: couldn't read mobidick.txt: %s" % e)
         finally:
             contentFile.close()
 
@@ -100,7 +100,7 @@ class DemoService(object):
             profileJson = self.service.getProfile(text)
             return json.dumps(profileJson)
         except Exception as e:
-            print "ERROR: %s" % e
+            print ("ERROR: %s" % e)
             return str(e)
 
 
@@ -135,3 +135,4 @@ if __name__ == '__main__':
     # Start the server
     print("Listening on %s:%d" % (HOST_NAME, PORT_NUMBER))
     cherrypy.quickstart(DemoService(personalityInsights), "/", config=conf)
+    
