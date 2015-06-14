@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 applications:
 - disk_quota: 1024M
   host: ratemyarticle
@@ -7,7 +7,7 @@ applications:
   domain: mybluemix.net
   instances: 1
   memory: 128M
-=======
+
 ---
 declared-services:
   personality-insights-service:
@@ -21,4 +21,4 @@ applications:
   services:
     - personality-insights-service
   host: personality-insights-python-zcchew1202-53
->>>>>>> eca73a04d2439e69a5552ed3ffe73726b3122ceb
+
