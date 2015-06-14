@@ -13,10 +13,10 @@ import bottle
 import os
 
 # get article
-from imran import get_page, get_article, test_urls
+from imran import get_page, get_article, test_urls, get_title
 
 #specifying the path for the files
-@route('/static/<filepath:path>')
+@route('/<filepath:path>')
 def server_static(filepath):
 	return static_file(filepath, root='.')
 
@@ -24,8 +24,18 @@ def server_static(filepath):
 def error404(error):
     return 'URL does not exist'
 
-@route("/")
+
+
+@route('/rate', methods=['POST'])
 def main():
+	get_url = request.forms.get('articleurl')
+	print(request.forms.get('articleurl'))
+	page = get_page(get_url)
+	# article = get_article(get_url)
+	title = get_title(get_url)
+	# print(page)
+	# print(article)
+	print(title)
 	return template('index.php')
 	
 @route('/rate', method="POST")
