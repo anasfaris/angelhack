@@ -1,4 +1,4 @@
-bottle==0.12.7
+bottle
 pymongo
 gevent==1.0.1
 pycps==0.3.0
